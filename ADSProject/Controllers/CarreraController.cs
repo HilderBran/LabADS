@@ -5,9 +5,9 @@ using System.Globalization;
 
 namespace ADSProject.Controllers
 {
-    [Route("api/carreras/")]
+    [Route("api/[Controller]/")]
 
-    public class CarreraControllers : ControllerBase
+    public class CarreraController : ControllerBase
     {
         private readonly ICarreras carreras;
         private const string COD_EXITO = "000000";
@@ -16,7 +16,7 @@ namespace ADSProject.Controllers
         private string pMensajeUsuario;
         private string pMensajeTecnico;
 
-        public CarreraControllers(ICarreras carreras)
+        public CarreraController(ICarreras carreras)
         {
             this.carreras = carreras;
         }
