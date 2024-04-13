@@ -9,14 +9,14 @@ namespace ADSProject.Controllers
 
     public class CarreraController : ControllerBase
     {
-        private readonly ICarreras carreras;
+        private readonly Interfaces.ICarreras carreras;
         private const string COD_EXITO = "000000";
         private const string COD_ERROR = "999999";
         private string pCodRespuesta;
         private string pMensajeUsuario;
         private string pMensajeTecnico;
 
-        public CarreraController(ICarreras carreras)
+        public CarreraController(Interfaces.ICarreras carreras)
         {
             this.carreras = carreras;
         }
