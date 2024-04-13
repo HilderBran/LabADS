@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ADSProject.Controllers
 {
+    [ApiController]
     [Route("api/grupo/")]
     public class GrupoController : ControllerBase
     {
@@ -19,7 +20,7 @@ namespace ADSProject.Controllers
             this.Grupo = Grupo;
         }
         [HttpPost("agregarGrupo")]
-        public ActionResult<string> AgregarGrupo([FromBody] Grupo Grupo)
+        public ActionResult<string> AgregarGrupo(Grupo Grupo)
         {
             try
             {
@@ -45,7 +46,7 @@ namespace ADSProject.Controllers
             }
         }
         [HttpPost("actualizarGrupo/{idGrupo}")]
-        public ActionResult<string> ActualizarGrupo(int idGrupo, [FromBody] Grupo Grupo)
+        public ActionResult<string> ActualizarGrupo(int idGrupo, Grupo Grupo)
         {
             try
             {

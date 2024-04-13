@@ -5,6 +5,7 @@ using System.Globalization;
 
 namespace ADSProject.Controllers
 {
+    [ApiController]
     [Route("api/[Controller]/")]
 
     public class CarreraController : ControllerBase
@@ -21,7 +22,7 @@ namespace ADSProject.Controllers
             this.carreras = carreras;
         }
         [HttpPost("agregarCarrera")]
-        public ActionResult<string> AgregarCarrera([FromBody] Carreras carreras)
+        public ActionResult<string> AgregarCarrera( Carreras carreras)
         {
             try
             {
@@ -47,7 +48,7 @@ namespace ADSProject.Controllers
             }
         }
         [HttpPost("actualizarCarrera/{idCarrera}")]
-        public ActionResult<string> ActualizarCarrera(int idCarrera, [FromBody] Carreras carreras)
+        public ActionResult<string> ActualizarCarrera(int idCarrera,  Carreras carreras)
         {
             try
             {

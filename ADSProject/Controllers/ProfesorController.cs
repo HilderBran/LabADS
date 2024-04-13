@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ADSProject.Controllers
 {
+    [ApiController]
     [Route("api/profesores/")]
     public class ProfesorController : ControllerBase
     {
@@ -19,7 +20,7 @@ namespace ADSProject.Controllers
             this.Profesor = Profesor;
         }
         [HttpPost("agregarEstudainte")]
-        public ActionResult<string> AgregarProfesor([FromBody] Profesor Profesor)
+        public ActionResult<string> AgregarProfesor( Profesor Profesor)
         {
             try
             {
@@ -45,7 +46,7 @@ namespace ADSProject.Controllers
             }
         }
         [HttpPost("actualizarProfesor/{idProfesor}")]
-        public ActionResult<string> ActualizarProfesor(int idProfesor, [FromBody] Profesor Profesor)
+        public ActionResult<string> ActualizarProfesor(int idProfesor, Profesor Profesor)
         {
             try
             {
