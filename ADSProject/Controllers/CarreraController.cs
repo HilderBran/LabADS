@@ -9,14 +9,14 @@ namespace ADSProject.Controllers
 
     public class CarreraController : ControllerBase
     {
-        private readonly Interfaces.ICarreras carreras;
+        private readonly ICarreras carreras;
         private const string COD_EXITO = "000000";
         private const string COD_ERROR = "999999";
         private string pCodRespuesta;
         private string pMensajeUsuario;
         private string pMensajeTecnico;
 
-        public CarreraController(Interfaces.ICarreras carreras)
+        public CarreraController(ICarreras carreras)
         {
             this.carreras = carreras;
         }
@@ -25,13 +25,6 @@ namespace ADSProject.Controllers
         {
             try
             {
-                // verificar que todas las validaciones por atributo del modelo esten correctas
-                if (!ModelState.IsValid)
-                {
-                    // En caso de no cunplir con todas las validaciones se procede a retornar una respuesta erronea
-                    return BadRequest(ModelState);
-                }
-
                 int contador = this.carreras.AgregarCarrera(carreras);
 
                 if (contador > 0)
@@ -58,13 +51,7 @@ namespace ADSProject.Controllers
         {
             try
             {
-                // verificar que todas las validaciones por atributo del modelo esten correctas
-                if (!ModelState.IsValid)
-                {
-                    // En caso de no cunplir con todas las validaciones se procede a retornar una respuesta erronea
-                    return BadRequest(ModelState);
-                }
-
+               
                 int contador = this.carreras.ActualizarCarrera(idCarrera, carreras);
 
                 if (contador > 0)
