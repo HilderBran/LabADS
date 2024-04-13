@@ -3,11 +3,11 @@ using ADSProject.Interfaces;
 
 namespace ADSProject.Repositories
 {
-    public class CarreraRepository : ICarreras
+    public class CarreraRepository : Interfaces.ICarreras
     {
         private List<Carreras> lstCarreras = new List<Carreras>
         {
-            new Carreras {IdCarrera = 1, NombreCarrera= "INGENIERIA EN SISTEMAS COMPUTACIONALES",
+            new Carreras {IdCarrera = 1, NombreCarrera= "ING. EN SISTEMAS COMPUTACIONALES",
             CodigoCarrera = "ISC"}
         };
 
