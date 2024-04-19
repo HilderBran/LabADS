@@ -1,10 +1,13 @@
 ﻿using System.Globalization;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ADSProject.Models
 {
     public class Estudiante
     {
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int IdEstudiante { get; set; }
         [Required(ErrorMessage = "Este es un campo requerido")]
         [MaxLength(length: 50, ErrorMessage = "la longitud del campo no puede ser mayor a 50 caracteres")]

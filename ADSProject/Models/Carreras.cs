@@ -1,10 +1,13 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Globalization;
 
 namespace ADSProject.Models
 {
     public class Carreras
     {
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int IdCarrera { get; set; }
 
         [Required(ErrorMessage = "Este es un campo requerido")]

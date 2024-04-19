@@ -1,3 +1,4 @@
+using ADSProject.Database;
 using ADSProject.Interfaces;
 using ADSProject.Repositories;
 
@@ -12,6 +13,7 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddSingleton<IEstudiante, EstudianteRepository>();
 builder.Services.AddSingleton<ICarreras, CarreraRepository>();
+builder.Services.AddDbContext<ApplicationDBContext>();
 
 var app = builder.Build();
 
