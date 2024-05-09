@@ -17,7 +17,7 @@ namespace ADSProject.Controllers
 
         public ProfesorController(IProfesor profesor)
         {
-            this.Profesor = Profesor;
+            this.Profesor = profesor;
         }
         [HttpPost("agregarEstudainte")]
         public ActionResult<string> AgregarProfesor( Profesor Profesor)
@@ -45,7 +45,7 @@ namespace ADSProject.Controllers
                 throw;
             }
         }
-        [HttpPost("actualizarProfesor/{idProfesor}")]
+        [HttpPut("actualizarProfesor/{idProfesor}")]
         public ActionResult<string> ActualizarProfesor(int idProfesor, Profesor Profesor)
         {
             try

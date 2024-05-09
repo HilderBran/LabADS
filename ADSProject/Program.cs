@@ -11,8 +11,11 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddSingleton<IEstudiante, EstudianteRepository>();
-builder.Services.AddSingleton<ICarreras, CarreraRepository>();
+builder.Services.AddScoped<IEstudiante, EstudianteRepository>();
+builder.Services.AddScoped<ICarreras, CarreraRepository>();
+builder.Services.AddScoped<IGrupo, GrupoRepository>();
+builder.Services.AddScoped<IProfesor, ProfesorRepository>();
+builder.Services.AddScoped<IMateria, MateriaRepository>();
 builder.Services.AddDbContext<ApplicationDBContext>();
 
 var app = builder.Build();

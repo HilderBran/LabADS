@@ -22,6 +22,5 @@ namespace ADSProject.Database
         public DbSet<Grupo> grupos { get; set; }
         public DbSet<Materia> materias{ get; set; }
         public DbSet<Profesor> profesores { get; set; }
-
     }
 }

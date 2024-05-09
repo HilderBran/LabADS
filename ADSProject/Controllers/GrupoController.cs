@@ -45,7 +45,7 @@ namespace ADSProject.Controllers
                 throw;
             }
         }
-        [HttpPost("actualizarGrupo/{idGrupo}")]
+        [HttpPut("actualizarGrupo/{idGrupo}")]
         public ActionResult<string> ActualizarGrupo(int idGrupo, Grupo Grupo)
         {
             try

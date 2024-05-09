@@ -1,24 +1,38 @@
 ﻿using ADSProject.Models;
 using ADSProject.Interfaces;
+using ADSProject.Database;
 
 namespace ADSProject.Repositories
 {
     public class CarreraRepository : Interfaces.ICarreras
     {
-        private List<Carreras> lstCarreras = new List<Carreras>
+        /*private List<Carreras> lstCarreras = new List<Carreras>
         {
             new Carreras {IdCarrera = 1, NombreCarrera= "ING. EN SISTEMAS COMPUTACIONALES",
             CodigoCarrera = "ISC"}
-        };
+        };*/
+
+        private readonly ApplicationDBContext applicationDBContext;
+
+        public CarreraRepository(ApplicationDBContext applicationDBContext)
+        {
+            this.applicationDBContext = applicationDBContext;
+        }
 
         public int ActualizarCarrera(int idCarrera, Carreras carreras)
         {
             try
             {
-                int indice = lstCarreras.FindIndex(tmp => tmp.IdCarrera == idCarrera);
+                /*int indice = lstCarreras.FindIndex(tmp => tmp.IdCarrera == idCarrera);
 
                 lstCarreras [indice] = carreras;
-                lstCarreras[indice].IdCarrera = idCarrera;
+                lstCarreras[indice].IdCarrera = idCarrera;*/
+
+                var item = applicationDBContext.carreras.FirstOrDefault(x => x.IdCarrera == idCarrera);
+
+                applicationDBContext.Entry(item).CurrentValues.SetValues(carreras);
+
+                applicationDBContext.SaveChanges();
 
                 return idCarrera;
             }
@@ -32,11 +46,14 @@ namespace ADSProject.Repositories
         {
             try
             {
-                if (lstCarreras.Count > 0)
+                /*if (lstCarreras.Count > 0)
                 {
                     carreras.IdCarrera = lstCarreras.Last().IdCarrera+ 1;
                 }
-                lstCarreras.Add(carreras);
+                lstCarreras.Add(carreras);*/
+
+                applicationDBContext.carreras.Add(carreras);
+                applicationDBContext.SaveChanges();
 
                 return carreras.IdCarrera;
             }
@@ -50,9 +67,15 @@ namespace ADSProject.Repositories
         {
             try
             {
-                int indice = lstCarreras.FindIndex(tmp => tmp.IdCarrera == idCarrera);
+                /*int indice = lstCarreras.FindIndex(tmp => tmp.IdCarrera == idCarrera);
 
-                lstCarreras.RemoveAt(indice);
+                lstCarreras.RemoveAt(indice);*/
+
+                var item = applicationDBContext.carreras.FirstOrDefault(x => x.IdCarrera == idCarrera);
+
+                applicationDBContext.carreras.Remove(item);
+
+                applicationDBContext.SaveChanges();
 
                 return true;
             }
@@ -66,7 +89,9 @@ namespace ADSProject.Repositories
         {
             try
             {
-                Carreras carreras= lstCarreras.FirstOrDefault(tmp => tmp.IdCarrera == idCarrera);
+                /*Carreras carreras= lstCarreras.FirstOrDefault(tmp => tmp.IdCarrera == idCarrera);*/
+
+                var carreras = applicationDBContext.carreras.FirstOrDefault(x => x.IdCarrera == idCarrera);
 
                 return carreras;
             }
@@ -81,7 +106,9 @@ namespace ADSProject.Repositories
         {
             try
             {
-                return lstCarreras;
+                //return lstCarreras;
+
+                return applicationDBContext.carreras.ToList();
             }
             catch (Exception)
             {

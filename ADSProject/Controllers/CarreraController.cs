@@ -47,7 +47,7 @@ namespace ADSProject.Controllers
                 throw;
             }
         }
-        [HttpPost("actualizarCarrera/{idCarrera}")]
+        [HttpPut("actualizarCarrera/{idCarrera}")]
         public ActionResult<string> ActualizarCarrera(int idCarrera,  Carreras carreras)
         {
             try
